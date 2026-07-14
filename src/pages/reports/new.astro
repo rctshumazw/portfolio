@@ -1,0 +1,152 @@
+---
+import ReportSection from '../../components/reports/ReportSection.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="New Service Report | Maoko Engineering">
+  <header class="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
+    <p class="text-sm font-semibold uppercase tracking-wide text-emerald-600">Service Report</p>
+    <h1 class="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">New Water Treatment Plant Report</h1>
+    <p class="mt-3 text-sm text-slate-600">Complete each section below and submit for service records.</p>
+  </header>
+
+  <form class="space-y-5" action="#" method="post">
+    <ReportSection
+      id="report-details"
+      title="Date & Technician Name"
+      description="Identify the service date and responsible field technician."
+    >
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Date
+          <input type="date" name="reportDate" class="rounded-lg border border-slate-300 px-3 py-2" required />
+        </label>
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Technician Name
+          <input type="text" name="technicianName" class="rounded-lg border border-slate-300 px-3 py-2" required />
+        </label>
+      </div>
+    </ReportSection>
+
+    <ReportSection id="pumps" title="Pumps (Transfer & Circulation)">
+      <fieldset class="space-y-3">
+        <legend class="text-sm font-semibold text-slate-700">Pump Checks</legend>
+        <div class="grid gap-3 md:grid-cols-4">
+          <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+            Equipment
+            <input type="text" name="pumpEquipment" class="rounded-lg border border-slate-300 px-3 py-2" />
+          </label>
+          <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+            Ammeter reading
+            <input type="text" name="pumpAmmeter" class="rounded-lg border border-slate-300 px-3 py-2" />
+          </label>
+          <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+            Visible flow?
+            <select name="pumpVisibleFlow" class="rounded-lg border border-slate-300 px-3 py-2">
+              <option value="">Select</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+          <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+            Action
+            <input type="text" name="pumpAction" class="rounded-lg border border-slate-300 px-3 py-2" />
+          </label>
+        </div>
+      </fieldset>
+    </ReportSection>
+
+    <ReportSection id="control-panel" title="Control Panel">
+      <div class="grid gap-3 md:grid-cols-2">
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Switches tripped?
+          <select name="switchesTripped" class="rounded-lg border border-slate-300 px-3 py-2">
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Meters functional?
+          <select name="metersFunctional" class="rounded-lg border border-slate-300 px-3 py-2">
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          HMI functional?
+          <select name="hmiFunctional" class="rounded-lg border border-slate-300 px-3 py-2">
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Other
+          <input type="text" name="controlPanelOther" class="rounded-lg border border-slate-300 px-3 py-2" />
+        </label>
+      </div>
+    </ReportSection>
+
+    <ReportSection id="pressure-readings" title="Pressure Readings">
+      <textarea name="pressureReadings" rows="3" class="w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Enter pressure readings and notes"></textarea>
+    </ReportSection>
+
+    <ReportSection id="tank-levels" title="Tank Levels">
+      <textarea name="tankLevels" rows="3" class="w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Enter tank levels"></textarea>
+    </ReportSection>
+
+    <ReportSection id="water-supply-table" title="Water Supply Table">
+      <div class="grid gap-3 md:grid-cols-3">
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Source
+          <input type="text" name="waterSupplySource" class="rounded-lg border border-slate-300 px-3 py-2" />
+        </label>
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Volume / flow
+          <input type="text" name="waterSupplyVolume" class="rounded-lg border border-slate-300 px-3 py-2" />
+        </label>
+        <label class="flex flex-col gap-1 text-sm font-medium text-slate-700">
+          Condition / notes
+          <input type="text" name="waterSupplyCondition" class="rounded-lg border border-slate-300 px-3 py-2" />
+        </label>
+      </div>
+    </ReportSection>
+
+    <ReportSection id="primary-filter-maintenance" title="Primary Filter Maintenance">
+      <textarea name="primaryFilterMaintenance" rows="3" class="w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Inspection, cleaning, replacement details"></textarea>
+    </ReportSection>
+
+    <ReportSection id="probe-maintenance" title="Probe Maintenance">
+      <textarea name="probeMaintenance" rows="3" class="w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Calibration and maintenance notes"></textarea>
+    </ReportSection>
+
+    <ReportSection id="chemical-storage" title="Chemical Storage">
+      <textarea name="chemicalStorage" rows="3" class="w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Storage levels, safety and labeling notes"></textarea>
+    </ReportSection>
+
+    <ReportSection id="housekeeping" title="Housekeeping">
+      <textarea name="housekeeping" rows="3" class="w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Cleanliness and safety observations"></textarea>
+    </ReportSection>
+
+    <ReportSection id="general-comments" title="General Comments">
+      <textarea name="generalComments" rows="4" class="w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Additional comments"></textarea>
+    </ReportSection>
+
+    <div class="flex flex-wrap gap-3">
+      <button
+        type="submit"
+        class="inline-flex items-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+      >
+        Save Service Report
+      </button>
+      <a
+        href="/"
+        class="inline-flex items-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+      >
+        Back to Dashboard
+      </a>
+    </div>
+  </form>
+</BaseLayout>
